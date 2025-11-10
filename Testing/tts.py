@@ -4,27 +4,47 @@ from streamlit_option_menu import option_menu
 import os
 import time
 
-# userprompt
-from langchain.prompts import PromptTemplate
-from langchain.memory import ConversationBufferMemory
+import streamlit as st
+from streamlit_option_menu import option_menu
+import os
+import time
 
-# vectorDB
+# userprompt & memory
+from langchain_core.prompts import PromptTemplate
+# Prompt templates & memory
+from langchain_core.prompts import PromptTemplate
+from langchain.memory import ConversationBufferMemory  # type: ignore
+ # memory stays in langchain
+
+# Vector database
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings.ollama import OllamaEmbeddings
 
-# llms
+# LLMs
 from langchain_community.llms import Ollama
-from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
-from langchain.callbacks.manager import CallbackManager
 
-# pdf loader
+# Callbacks
+from langchain_core.callbacks import StreamingStdOutCallbackHandler
+from langchain_core.callbacks.manager import CallbackManager
+
+# PDF loading & splitting
 from langchain_community.document_loaders import PyPDFLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter  # type: ignore
 
-# pdf processing
-from langchain.text_splitter import RecursiveCharacterTextSplitter
 
-# retrieval
-from langchain.chains import RetrievalQA
+
+# Retrieval chain
+from langchain.chains import RetrievalQA  # type: ignore
+
+
+# Voice/audio
+import pyttsx3
+import speech_recognition as sr
+
+
+# voice + audio
+import pyttsx3
+import speech_recognition as sr
 
 ####################
 import pyttsx3
